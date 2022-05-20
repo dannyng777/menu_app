@@ -7,6 +7,7 @@ const callRecipeAPI = () => {
         .then(response => response.json())
         .then(data => {
           console.log(data.hits[0]);
+          let result = data.hits[0];
         });
 }
 
