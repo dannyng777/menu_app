@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu App</title>
-    <link rel="stylesheet" href="/style.css">
-    <script src="/main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
 </head>
 <body>
-  <div class="container">
+  <div id="selection-screen" class="container" style="display: none">
     <form action="">
       <div>
         <div>
@@ -47,6 +49,50 @@
         <button id="submit"> Submit </button>
       </div>
     </form>
+  </div>
+  <div id="results-screen" class="container">
+    <div id="recipe-result" class="container-fluid p-3 mb-3">
+      <h3><span id="recipe-title">Grilled Mojo-Marinated Skirt Steak Recipe</span></h3>
+      <img class="mb-1" width="100%"src="https://edamam-product-images.s3.amazonaws.com/web-img/ceb/ceba0084946d91d14e3a04132bfa9395.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB8aCXVzLWVhc3QtMSJHMEUCIQCh5%2BsEkkalQHbL7VnT%2FyOu983IV1YdTaNBtAavP3Rg2wIgPGijxLGLbt1piyKHPZ%2BsyTO1t7kPzgN78Gg79g8NN1oq2wQI%2BP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDE7veboDnlzOZ0ArmiqvBH4k8f8QvE%2FeqXMf4ywClBMyBS1vLh2Atfy0Thm3zftkpvDWkF4H2tX9mU3ZutpqpeNSaCFckC9gniLwnOELgC43rRjJW1nPKHhOjjSJM6scmq%2FPaYZ4G5g4Jk4riCxG1yDRo%2FHMKur9fh5oQkmaH4q%2FiHpJ4IZHWNETxVXwEiJ0mBn96QVo6QW47zhtVclMB7%2BIMIhfi%2BQ35cjE1f6bQ3tIM1Qs0VASz9Mf%2B4LvbyAzJXcip8PFehk%2BIOhmTC8EMF9NKstiUecyHHekCGgjLFkBRVPfSkRj%2B6g6qrArWGj2QxPMgj4wWeT3s8UYxxJl%2BNpAFCc8YrZdv%2BiL%2FPkgAqcc%2Fe0QBUdFYdr4%2BQNZCLy%2BHUVaxd%2B8YmlnW7WJQcweGvXzBwUIhDmHCEa1zIQl0z%2FS2WCFX0DnEl1y4srbyF5DpBfvLq8ek%2B5rfoSBgtlgPhm8TNaVhQnlM1ZuQo0EdHNHhKQLmP1QUcix%2BnaYbpqzLbQYbuDgUS%2F%2B7%2BZpwIZsSdAB%2Fj%2BSPl2AxBE8Qq%2B4PD7NDzh0fa6udT7l8UZFGa0EBScf77YnHUPSwzUZf7frYALFTEi%2BQq8ZIqvffYEbAmO3hxZ%2FL5veRT6iYxNp39jmhO0ouL%2FJYCOetBlAvr%2FDF7a0THENQTiruhye6m3Adn2RBaf63vh5aQvpnvnEhHG4Tu4IJxBCQMMgETwCqx9icGHwZyP%2FR83er5VcsNJ5sV9Urpi4rZpch3dWWD8Zilcw%2BJOblAY6qQFZt6Ul%2BjyGhra0dlAM%2F18nQHaAukSUBv6rRfvRj2JPnp2%2Bs5s3nE9zYj9B3jJx%2FCN1hQdsKvu9aG0vKvk8aoB1c8ztM41YimLuTu5dWFTwB8MZXO624MG79TVI%2Bq0drxn2Zp9bwi1ZsSTnrAS8mfKVJLv%2FPJk2tiBeSd3Eig2Ctexwj7A5F206wy%2B0zEKrgSQZpMTIr%2FZAcIDi%2BPorKi7S%2Fo0m5fxa5kYB&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220520T001044Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFPMKXVUHP%2F20220520%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0cb57ec318c09983cd75e118b349e7ef7d552f3c3ca4d3a953c20ac4210a6cad" alt="" srcset="">
+      <p><strong>Calories / Serving: </strong><span id="calories">782</span></p>
+      <p><strong>Fat: </strong><span id="fat">65g</span></p>
+      <p><strong>Carbs: </strong><span id="carbs">6g</span></p>
+      <p><strong>Protein: </strong><span id="protein">46g</span></p>
+      <Strong>Ingredients:</Strong>
+      <ul id="ingredients-list">
+        <li>2 pounds skirt steak, trimmed of excess fat (see note above)</li>  
+        <li>2 tbs of lemon juice</li>  
+        <li>1/4 cup juice from 1 orange</li>  
+        <li>2/3 cup olive oil, divided</li>  
+        <li>4 medium cloves garlic, minced</li>  
+        <li>1 tsp ground cumin</li>  
+        <li>Kosher salt and freshly ground black pepper</li>  
+        <li>1/4 cup chopped fresh cilantro</li>  
+      </ul>
+      <button src="#" class="btn btn-primary">Full Recipe Instructions</button>
+
+
+    </div>
+    <div id="cocktail-result" class="container-fluid p-3">
+      <h2>Old Fashioned</h2>
+      <img class="mb-1" width="100%" src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg" alt="" srcset="">
+      <p><strong>Glass: </strong>Old-Fashioned Glass</p>
+      <p><strong>Ingredients: </strong></p>
+      <ul>
+        <li>4.5 cL Bourbon</li>
+        <li>2 dashes Angostura</li>
+        <li>1 cube Sugar</li>
+        <li>1 dash water</li>
+      </ul>
+      <p><strong>Instructions:</strong></p>
+      <ol>
+        <li>Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water.</li>
+        <li>Muddle until dissolved.</li>
+        <li>Fill the glass with ice cubes and add whiskey.</li>
+        <li>Garnish with orange twist, and a cocktail cherry.</li>
+      </ol>
+      
+    </div>
   </div>
 </body>
 </html>
