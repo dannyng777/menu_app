@@ -94,7 +94,6 @@ switchDisplay=()=>{
 
 
 document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< HEAD
     // document.getElementById('submit').addEventListener('click', (event) => {
     //     event.preventDefault();
   
@@ -105,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // });
 
     // Code to only allow 3 checked boxes
-=======
->>>>>>> 87bcff9c97e85e49f03bb939c59cf563a42bad2c
     let checkedBoxes = 0;
     document.addEventListener('click', (event) => {
         //only do something if it's a checkbox
@@ -134,11 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // callRecipeApi();
         switchDisplay()
     });
-<<<<<<< HEAD
-=======
     document.getElementById('reset').addEventListener('click', (event) => {
         event.preventDefault();
         switchDisplay()
     });    
->>>>>>> 87bcff9c97e85e49f03bb939c59cf563a42bad2c
 });
