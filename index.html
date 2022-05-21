@@ -11,46 +11,26 @@
     <script src="main.js"></script>
 </head>
 <body>
-  <div id="selection-screen" class="container" style="display: none">
+  <div id="selection-screen" class="container" style="display: ">
     <form action="">
-      <div>
-        <div>
-          <h2>What would you like to drink?</h2>
-          <select id="drink" list="drink" name="drink">  
-            <option value="">Select spirit</option>
-            <option value="Gin">Gin</option>
-            <option value="Vodka">Vodka</option>
-            <option value="Tequila">Tequila</option>
-          </select>
-          <input type="checkbox" id="pomogranate" name="pomogranate" value="pomogranate">
-          <label for="pomogranate">Pomogranate</label><br>
-          <input type="checkbox" id="strawberry" name="strawberry" value="strawberry">
-          <label for="strawberry">Strawberry</label><br>
-          <input type="checkbox" id="peach" name="peach" value="peach">
-          <label for="peach">Peach</label><br>
-          <input type="checkbox" id="mint" name="mint" value="mint">
-          <label for="mint">Mint</label><br>
-          <input type="checkbox" id="ginger" name="ginger" value="ginger">
-          <label for="ginger">Ginger</label><br>
-          <input type="checkbox" id="passionfruit" name="passionfruit" value="passionfruit">
-          <label for="passionfruit">Passionfruit</label><br>
-        </div>
-        <div>
+      <div id="selection-wrapper" class="p-3">
+        <div id="food-selection" class="m-2">
           <h2>What would you like to eat?</h2>
-          <select id="meal" list="meal" name="meal">  
+          <select class="form-select m-2" id="meal" list="meal" name="meal">  
+
             <option value="">Select meal type</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
             <option value="snack">Snack</option>
           </select>
-          <select id="cuisine" list="cuisine" name="cuisine">  
+          <select class="form-select m-2" id="cuisine" list="cuisine" name="cuisine">  
             <option value="">Select cuisine</option>
             <option value="Mexican">Mexican</option>
             <option value="Chinese">Chinese</option>
             <option value="Indian">Indian</option>
           </select>
-          <select id="protein" list="protein" name="protein">  
+          <select class="form-select m-2" id="protein" list="protein" name="protein">  
             <option value="">Select your protein choice</option>
             <option value="beef">Beef</option>
             <option value="chicken">Chicken</option>
@@ -58,11 +38,46 @@
             <option value="vegetarian">Vegetarian</option>
           </select>
         </div>
-        <button id="submit">Submit</button>
+        <div id="drink-selection" class="m-2">
+          <h2>What would you like to drink?</h2>
+          <select class="form-select mb-2" id="drink" list="drink" name="drink">  
+            <option selected value="">Select spirit</option>
+            <option value="gin">Gin</option>
+            <option value="vodka">Vodka</option>
+            <option value="tequila">Vodka</option>
+            <option value="">Vodka</option>
+          </select>
+          <h5>Select up to 3 modifiers</h5>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Strawberry
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Checkbox
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Checkbox
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Checkbox
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary">Get Recipes </button>
       </div>
     </form>
   </div>
-  <div id="results-screen" class="container">
+  <div id="results-screen" class="container" style="display:none">
     <div id="recipe-result" class="container-fluid p-3 mb-3">
       <h3><span id="recipe-title">Grilled Mojo-Marinated Skirt Steak Recipe</span></h3>
       <img class="mb-1" width="100%"src="https://edamam-product-images.s3.amazonaws.com/web-img/ceb/ceba0084946d91d14e3a04132bfa9395.jpg?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEB8aCXVzLWVhc3QtMSJHMEUCIQCh5%2BsEkkalQHbL7VnT%2FyOu983IV1YdTaNBtAavP3Rg2wIgPGijxLGLbt1piyKHPZ%2BsyTO1t7kPzgN78Gg79g8NN1oq2wQI%2BP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgwxODcwMTcxNTA5ODYiDE7veboDnlzOZ0ArmiqvBH4k8f8QvE%2FeqXMf4ywClBMyBS1vLh2Atfy0Thm3zftkpvDWkF4H2tX9mU3ZutpqpeNSaCFckC9gniLwnOELgC43rRjJW1nPKHhOjjSJM6scmq%2FPaYZ4G5g4Jk4riCxG1yDRo%2FHMKur9fh5oQkmaH4q%2FiHpJ4IZHWNETxVXwEiJ0mBn96QVo6QW47zhtVclMB7%2BIMIhfi%2BQ35cjE1f6bQ3tIM1Qs0VASz9Mf%2B4LvbyAzJXcip8PFehk%2BIOhmTC8EMF9NKstiUecyHHekCGgjLFkBRVPfSkRj%2B6g6qrArWGj2QxPMgj4wWeT3s8UYxxJl%2BNpAFCc8YrZdv%2BiL%2FPkgAqcc%2Fe0QBUdFYdr4%2BQNZCLy%2BHUVaxd%2B8YmlnW7WJQcweGvXzBwUIhDmHCEa1zIQl0z%2FS2WCFX0DnEl1y4srbyF5DpBfvLq8ek%2B5rfoSBgtlgPhm8TNaVhQnlM1ZuQo0EdHNHhKQLmP1QUcix%2BnaYbpqzLbQYbuDgUS%2F%2B7%2BZpwIZsSdAB%2Fj%2BSPl2AxBE8Qq%2B4PD7NDzh0fa6udT7l8UZFGa0EBScf77YnHUPSwzUZf7frYALFTEi%2BQq8ZIqvffYEbAmO3hxZ%2FL5veRT6iYxNp39jmhO0ouL%2FJYCOetBlAvr%2FDF7a0THENQTiruhye6m3Adn2RBaf63vh5aQvpnvnEhHG4Tu4IJxBCQMMgETwCqx9icGHwZyP%2FR83er5VcsNJ5sV9Urpi4rZpch3dWWD8Zilcw%2BJOblAY6qQFZt6Ul%2BjyGhra0dlAM%2F18nQHaAukSUBv6rRfvRj2JPnp2%2Bs5s3nE9zYj9B3jJx%2FCN1hQdsKvu9aG0vKvk8aoB1c8ztM41YimLuTu5dWFTwB8MZXO624MG79TVI%2Bq0drxn2Zp9bwi1ZsSTnrAS8mfKVJLv%2FPJk2tiBeSd3Eig2Ctexwj7A5F206wy%2B0zEKrgSQZpMTIr%2FZAcIDi%2BPorKi7S%2Fo0m5fxa5kYB&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220520T001044Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=ASIASXCYXIIFPMKXVUHP%2F20220520%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=0cb57ec318c09983cd75e118b349e7ef7d552f3c3ca4d3a953c20ac4210a6cad" alt="" srcset="">
