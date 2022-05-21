@@ -1,3 +1,7 @@
+* {
+    font-family: 'Lato';
+
+}
 #recipe-result {
     background-color: whitesmoke;
     
@@ -5,4 +9,33 @@
 #cocktail-result {
     background-color: whitesmoke;
     
+}
+
+#selection-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#selection-wrapper {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: ;
+    justify-content: space-between;
+}
+
+#drink-selection {
+    flex-wrap: wrap;
+}
+
+#modifiers {
+    background-color: white;
+    max-height: 15vh;
+    overflow: scroll;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+
+
 }
