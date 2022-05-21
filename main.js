@@ -10,14 +10,14 @@ const callRecipeApi = () => {
           let result = data.hits[0].recipe;
           let title = result.label;
           let image = result.image;
-        let ingredientList = result.ingredientLines;
+        let ingredients = result.ingredientLines;
           let recipeLink = result.url;
           let calories = result.calories;
           let fat = Math.round(result.totalNutrients.FAT.quantity);
           let carbs = Math.round(result.totalNutrients.CHOCDF.quantity);
           let protein = Math.round(result.totalNutrients.PROCNT.quantity);
 
-          ingredientList.map(ingredient => {
+          let ingredientList = ingredients.map(ingredient => {
               return `<li>${ingredient}</li>`;
           }).join('');
 
@@ -32,7 +32,7 @@ const callRecipeApi = () => {
             <ul id="ingredients-list">
                 ${ingredientList}  
             </ul>
-            <button src="${recipeLink}" class="btn btn-primary">Full Recipe Instructions</button>`;
+            <a href="${recipeLink}"><button class="btn btn-primary">Full Recipe Instructions</button></a>`;
         });
 }
 
