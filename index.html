@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Menu App</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato&family=Merriweather:wght@900&family=Roboto+Flex:opsz@8..144&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="main.js"></script>
 </head>
 <body>
-  <div id="selection-screen" class="container" style="display: block">
+  <div id="selection-screen" class="container" style="display:">
     <form action="">
       <div id="selection-wrapper" class="p-3">
         <div id="food-selection" class="m-2">
           <h2>What would you like to eat?</h2>
-          <select class="form-select m-2" id="meal" list="meal" name="meal">  
-
+          <select class="form-select m-2" id="meal" list="meal" name="meal" required>  
             <option value="">Select meal type</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
             <option value="snack">Snack</option>
           </select>
-          <select class="form-select m-2" id="cuisine" list="cuisine" name="cuisine">  
+          <select class="form-select m-2" id="cuisine" list="cuisine" name="cuisine" required>  
             <option value="">Select cuisine</option>
             <option value="American">American</option>
             <option value="Asian">Asian</option>
@@ -45,8 +47,9 @@
             <option value="South American">South American</option>
             <option value="South East Asian">South East Asian</option>
           </select>
-          <select class="form-select m-2" id="protein" list="protein" name="protein">  
-            <option value="">Select your protein choice or vegetarian</option>
+          <select class="form-select m-2" id="protein" list="protein" name="protein" required>  
+            <option value="">Select your protein choice</option>
+
             <option value="beef">Beef</option>
             <option value="chicken">Chicken</option>
             <option value="seafood">Seafood</option>
@@ -55,37 +58,230 @@
         </div>
         <div id="drink-selection" class="m-2">
           <h2>What would you like to drink?</h2>
-          <select class="form-select mb-2" id="drink" list="drink" name="drink">  
+          <select class="form-select mb-2" id="drink" list="drink" name="drink" required>  
             <option selected value="">Select spirit</option>
-            <option value="gin">Gin</option>
-            <option value="vodka">Vodka</option>
-            <option value="tequila">Vodka</option>
-            <option value="">Vodka</option>
+            <option value="Gin">Gin</option>
+            <option value="Vodka">Vodka</option>
+            <option value="Tequila">Tequila</option>
           </select>
           <h5>Select up to 3 modifiers</h5>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              Strawberry
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-            <label class="form-check-label" for="flexCheckChecked">
-              Checkbox
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-            <label class="form-check-label" for="flexCheckChecked">
-              Checkbox
-            </label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-            <label class="form-check-label" for="flexCheckChecked">
-              Checkbox
-            </label>
+          <div id="modifiers" class="p-2">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="Sweet Vermouth" id="flexCheckDefault">
+              <label class="form-check-label" for="flexCheckDefault">
+                Sweet Vermouth
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="Strawberry Schnapps" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Strawberry Schnapps
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" value="Apricot Brandy" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Apricot Brandy
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Triple Sec" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Triple Sec
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Orange Bitters" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Orange Bitters
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Amaretto" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Amaretto
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Tea" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Tea
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Coffee Liqueur" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Coffee Liqueur
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Bitters" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Bitters
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Sugar" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Sugar
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Kahlua" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Kahlua
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Demerara Sugar" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Demerara Sugar
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Watermelon" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Watermelon
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Lime Juice" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Lime Juice
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Creme de Cacao" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Creme de Cacao
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Grenadine" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Grenadine
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Red wine" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Red wine
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Grapefruit Juice" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Grapefruit Juice
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Apple Juice" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Apple Juice
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Pineapple Juice" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Pineapple Juice
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Lemon Juice" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Lemon Juice
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Sugar Syrup" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Sugar Syrup
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Milk" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Milk
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Strawberries" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Strawberries
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Lime" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Lime
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Tomato Juice" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Tomato Juice
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Heavy Cream" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Heavy Cream
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Coffee" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Coffee
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Espresso" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Espresso
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Egg Yolk" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Egg Yolk
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Lemon" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Lemon
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Irish Cream" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Irish Cream
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Midori Melon Liqueur" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Midori Melon Liqueur
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Sprite" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Sprite
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Peppermint Schnapps" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Peppermint Schnapps
+              </label>
+            </div>
+            <div class="form-check ">
+              <input class="form-check-input" type="checkbox" value="Creme de Cassis" id="flexCheckChecked">
+              <label class="form-check-label" for="flexCheckChecked">
+                Peppermint ScCreme de Cassis
+              </label>
+            </div>
           </div>
         </div>
         <button id="submit" class="btn btn-primary">Get Recipes </button>
@@ -101,21 +297,13 @@
       <img class="mb-1" width="100%" src="https://www.thecocktaildb.com/images/media/drink/vrwquq1478252802.jpg" alt="" srcset="">
       <p><strong>Glass: </strong>Old-Fashioned Glass</p>
       <p><strong>Ingredients: </strong></p>
-      <ul>
-        <li>4.5 cL Bourbon</li>
-        <li>2 dashes Angostura</li>
-        <li>1 cube Sugar</li>
-        <li>1 dash water</li>
+      <ul id="drinkIngri">
+
       </ul>
       <p><strong>Instructions:</strong></p>
-      <ol>
-        <li>Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water.</li>
-        <li>Muddle until dissolved.</li>
-        <li>Fill the glass with ice cubes and add whiskey.</li>
-        <li>Garnish with orange twist, and a cocktail cherry.</li>
-      </ol>
-      
+      <p id="drinkInstructions"></p>
     </div>
+    <button id="reset" class="btn btn-primary"> Reset </button>
   </div>
 </body>
 </html>
