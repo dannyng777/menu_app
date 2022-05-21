@@ -13,44 +13,24 @@
 <body>
   <div id="selection-screen" class="container" style="display: block">
     <form action="">
-      <div>
-        <div>
-          <h2>What would you like to drink?</h2>
-          <select id="drink" list="drink" name="drink">  
-            <option value="">Select spirit</option>
-            <option value="Gin">Gin</option>
-            <option value="Vodka">Vodka</option>
-            <option value="Tequila">Tequila</option>
-          </select>
-          <input type="checkbox" id="pomogranate" name="pomogranate" value="pomogranate">
-          <label for="pomogranate">Pomogranate</label><br>
-          <input type="checkbox" id="strawberry" name="strawberry" value="strawberry">
-          <label for="strawberry">Strawberry</label><br>
-          <input type="checkbox" id="peach" name="peach" value="peach">
-          <label for="peach">Peach</label><br>
-          <input type="checkbox" id="mint" name="mint" value="mint">
-          <label for="mint">Mint</label><br>
-          <input type="checkbox" id="ginger" name="ginger" value="ginger">
-          <label for="ginger">Ginger</label><br>
-          <input type="checkbox" id="passionfruit" name="passionfruit" value="passionfruit">
-          <label for="passionfruit">Passionfruit</label><br>
-        </div>
-        <div>
+      <div id="selection-wrapper" class="p-3">
+        <div id="food-selection" class="m-2">
           <h2>What would you like to eat?</h2>
-          <select id="meal" list="meal" name="meal">  
+          <select class="form-select m-2" id="meal" list="meal" name="meal">  
+
             <option value="">Select meal type</option>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="dinner">Dinner</option>
             <option value="snack">Snack</option>
           </select>
-          <select id="cuisine" list="cuisine" name="cuisine">  
+          <select class="form-select m-2" id="cuisine" list="cuisine" name="cuisine">  
             <option value="">Select cuisine</option>
             <option value="Mexican">Mexican</option>
             <option value="Chinese">Chinese</option>
             <option value="Indian">Indian</option>
           </select>
-          <select id="protein" list="protein" name="protein">  
+          <select class="form-select m-2" id="protein" list="protein" name="protein">  
             <option value="">Select your protein choice</option>
             <option value="beef">Beef</option>
             <option value="chicken">Chicken</option>
@@ -58,11 +38,46 @@
             <option value="vegetarian">Vegetarian</option>
           </select>
         </div>
-        <button id="submit">Submit</button>
+        <div id="drink-selection" class="m-2">
+          <h2>What would you like to drink?</h2>
+          <select class="form-select mb-2" id="drink" list="drink" name="drink">  
+            <option selected value="">Select spirit</option>
+            <option value="gin">Gin</option>
+            <option value="vodka">Vodka</option>
+            <option value="tequila">Vodka</option>
+            <option value="">Vodka</option>
+          </select>
+          <h5>Select up to 3 modifiers</h5>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Strawberry
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Checkbox
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Checkbox
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              Checkbox
+            </label>
+          </div>
+        </div>
+        <button class="btn btn-primary">Get Recipes </button>
       </div>
     </form>
   </div>
-  <div id="results-screen" class="container">
+  <div id="results-screen" class="container" style="display:none">
     <div id="recipe-result" class="container-fluid p-3 mb-3">
       <!-- Recipe Here -->
     </div>

@@ -6,3 +6,22 @@
     background-color: whitesmoke;
     
 }
+
+#selection-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#selection-wrapper {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: ;
+    justify-content: space-between;
+}
+
+#drink-selection {
+    flex-wrap: wrap;
+}
