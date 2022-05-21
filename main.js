@@ -81,7 +81,6 @@ callDrinkApi = ()=>{
 
 
 document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< HEAD
     // document.getElementById('submit').addEventListener('click', (event) => {
     //     event.preventDefault();
   
@@ -112,12 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     })
-=======
     document.getElementById('submit').addEventListener('click', (event) => {
         event.preventDefault();
         
         callDrinkApi();
         callRecipeApi();
     });
->>>>>>> 8cd872c11306752d41e7535bf1008c8c674c0ed8
 });
