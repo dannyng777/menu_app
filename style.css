@@ -12,7 +12,7 @@
 }
 
 #selection-screen {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
 #modifiers {
     background-color: white;
     max-height: 15vh;
-    overflow: scroll;
+    overflow: auto;
     border-radius: 5px;
     border: 1px solid lightgrey;
 

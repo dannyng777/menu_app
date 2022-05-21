@@ -59,10 +59,34 @@ callDrinkApi = ()=>{
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('submit').addEventListener('click', (event) => {
-        event.preventDefault();
+    // document.getElementById('submit').addEventListener('click', (event) => {
+    //     event.preventDefault();
   
-        callDrinkApi();
-        callRecipeApi();
-    });
+    //     callDrinkApi();
+    //     callRecipeApi();
+
+
+    // });
+
+    // Code to only allow 3 checked boxes
+    let checkedBoxes = 0;
+    document.addEventListener('click', (event) => {
+        //only do something if it's a checkbox
+        if (event.target.type == 'checkbox') {
+            // if it's being unchecked, subtract from counter
+            if (event.target.checked == false) {
+                checkedBoxes -= 1
+                
+            }
+            // don't do anything if 3 boxes are already checked
+            if (checkedBoxes == 3) {
+                event.preventDefault();
+                return
+            }
+            // else check the box
+            if (event.target.checked == true) {
+                checkedBoxes += 1;
+            }
+        }
+    })
 });
