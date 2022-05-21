@@ -81,17 +81,6 @@ callDrinkApi = ()=>{
 
 
 document.addEventListener('DOMContentLoaded', () => {
-<<<<<<< HEAD
-    // document.getElementById('submit').addEventListener('click', (event) => {
-    //     event.preventDefault();
-  
-    //     callDrinkApi();
-    //     callRecipeApi();
-
-
-    // });
-
-    // Code to only allow 3 checked boxes
     let checkedBoxes = 0;
     document.addEventListener('click', (event) => {
         //only do something if it's a checkbox
@@ -112,12 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     })
-=======
     document.getElementById('submit').addEventListener('click', (event) => {
         event.preventDefault();
         
         callDrinkApi();
         callRecipeApi();
     });
->>>>>>> 8cd872c11306752d41e7535bf1008c8c674c0ed8
 });
