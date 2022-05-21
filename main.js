@@ -78,6 +78,19 @@ callDrinkApi = ()=>{
         })
     });
 }
+let flip = 'on'
+switchDisplay=()=>{
+    console.log(flip)
+    searchScr = document.getElementById('selection-screen')
+    resultScr = document.getElementById('results-screen')
+    switch(flip){
+        case 'off': searchScr.style="display:block", resultScr.style="display:none"
+        break;
+        case 'on' : searchScr.style="display:none", resultScr.style="display:block"
+        break;
+    }
+    flip = 'off'
+}
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -105,6 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         
         callDrinkApi();
-        callRecipeApi();
+        // callRecipeApi();
+        switchDisplay()
     });
+    document.getElementById('reset').addEventListener('click', (event) => {
+        event.preventDefault();
+        switchDisplay()
+    });    
 });
