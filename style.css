@@ -1,3 +1,7 @@
+* {
+    font-family: 'Lato';
+
+}
 #recipe-result {
     background-color: whitesmoke;
     
@@ -24,4 +28,14 @@
 
 #drink-selection {
     flex-wrap: wrap;
+}
+
+#modifiers {
+    background-color: white;
+    max-height: 15vh;
+    overflow: scroll;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+
+
 }
