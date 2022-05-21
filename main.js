@@ -3,11 +3,36 @@ const callRecipeApi = () => {
   let cuisine = document.getElementById('cuisine').value;
   let protein = document.getElementById('protein').value;
 
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&diet=balanced&cuisineType=${cuisine}&mealType=${meal}&dishType=Main%20course&imageSize=REGULAR&random=true&field=uri&field=label&field=image&field=ingredientLines&field=calories&field=cuisineType&field=mealType&field=dishType`)
+    fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data.hits[0]);
-          let result = data.hits[0];
+          console.log(data.hits[0].recipe);
+          let result = data.hits[0].recipe;
+          let title = result.label;
+          let image = result.image;
+        let ingredientList = result.ingredientLines;
+          let recipeLink = result.url;
+          let calories = result.calories;
+          let fat = Math.round(result.totalNutrients.FAT.quantity);
+          let carbs = Math.round(result.totalNutrients.CHOCDF.quantity);
+          let protein = Math.round(result.totalNutrients.PROCNT.quantity);
+
+          ingredientList.map(ingredient => {
+              return `<li>${ingredient}</li>`;
+          }).join('');
+
+          document.getElementById('recipe-result').innerHTML = `
+            <h3><span id="recipe-title">${title}</span></h3>
+            <img class="mb-1" width="100%" src="${image}" alt="${title} srcset="">
+            <p><strong>Calories / Serving: </strong><span id="calories">${calories}g</span></p>
+            <p><strong>Fat: </strong><span id="fat">${fat}g</span></p>
+            <p><strong>Carbs: </strong><span id="carbs">${carbs}g</span></p>
+            <p><strong>Protein: </strong><span id="protein">${protein}g</span></p>
+            <Strong>Ingredients:</Strong>
+            <ul id="ingredients-list">
+                ${ingredientList}  
+            </ul>
+            <button src="${recipeLink}" class="btn btn-primary">Full Recipe Instructions</button>`;
         });
 }
 
