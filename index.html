@@ -17,7 +17,7 @@
   <div id="selection-screen" class="container" style="display: block">
     <form action="">
       <div id="selection-wrapper" class="p-3">
-        <div id="food-selection" class="m-2">
+        <!-- <div id="food-selection" class="m-2">
           <h2>What would you like to eat?</h2>
           <select class="form-select m-2" id="meal" list="meal" name="meal" required>  
             <option value="">Select meal type</option>
@@ -55,15 +55,14 @@
             <option value="seafood">Seafood</option>
             <option value="vegetarian">Vegetarian</option>
           </select>
-        </div>
+        </div> -->
         <div id="drink-selection" class="m-2">
           <h2>What would you like to drink?</h2>
           <select class="form-select mb-2" id="drink" list="drink" name="drink" required>  
             <option selected value="">Select spirit</option>
-            <option value="gin">Gin</option>
-            <option value="vodka">Vodka</option>
-            <option value="tequila">Vodka</option>
-            <option value="">Vodka</option>
+            <option value="Gin">Gin</option>
+            <option value="Vodka">Vodka</option>
+            <option value="Tequila">Tequila</option>
           </select>
           <h5>Select up to 3 modifiers</h5>
           <div id="modifiers" class="p-2">
@@ -285,7 +284,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-primary">Get Recipes </button>
+        <button id="submit" class="btn btn-primary">Get Recipes </button>
       </div>
     </form>
   </div>
@@ -304,6 +303,7 @@
       <p><strong>Instructions:</strong></p>
       <p id="drinkInstructions"></p>
     </div>
+    <button id="reset" class="btn btn-primary"> Reset </button>
   </div>
 </body>
 </html>
