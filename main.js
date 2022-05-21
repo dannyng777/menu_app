@@ -78,18 +78,19 @@ callDrinkApi = ()=>{
         })
     });
 }
-let flip = 'on'
+let flip = false
 switchDisplay=()=>{
     console.log(flip)
     searchScr = document.getElementById('selection-screen')
     resultScr = document.getElementById('results-screen')
     switch(flip){
-        case 'off': searchScr.style="display:block", resultScr.style="display:none"
+        case true: searchScr.style="display:block", resultScr.style="display:none"
+        flip = false
         break;
-        case 'on' : searchScr.style="display:none", resultScr.style="display:block"
+        case false: searchScr.style="display:none", resultScr.style="display:block"
+        flip=true
         break;
     }
-    flip = 'off'
 }
 
 
