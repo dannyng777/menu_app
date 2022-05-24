@@ -1,9 +1,9 @@
-const callRecipeApi = () => {
+const callRecipeApi = async () => {
   let meal = document.getElementById('meal').value;
   let cuisine = document.getElementById('cuisine').value;
   let protein = document.getElementById('protein').value;
 
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
+   await fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
         .then(response => response.json())
         .then(data => {
           console.log(data.hits[0].recipe);
@@ -34,6 +34,7 @@ const callRecipeApi = () => {
             </ul>
             <a href="${recipeLink}"><button class="btn btn-primary">Full Recipe Instructions</button></a>`;
         });
+        switchDisplay()
 }
 
 callDrinkApi = ()=>{
@@ -124,12 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     })
-    document.getElementById('submit').addEventListener('click', (event) => {
+    document.getElementById('submit').addEventListener('click', async (event) => {
         event.preventDefault();
         
         callDrinkApi();
-        // callRecipeApi();
-        switchDisplay()
+        await callRecipeApi();
     });
     document.getElementById('reset').addEventListener('click', (event) => {
         event.preventDefault();
