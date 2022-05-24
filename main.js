@@ -39,20 +39,20 @@ const callRecipeApi = () => {
 /** Start by switching spirits to checkbox and redo */
 callDrinkApi = ()=>{
     let drink = document.getElementById('drink').value;
-    let modifiers = document.getElementsByClassName('form-check-input');
-    let modifiersCheck = [];
-    for(i=0;i<modifiers.length;i++){
-        if (modifiers[i].checked==true){
-            modifiersCheck.push(i)
-            console.log(modifiersCheck)
-        }
-    }
-    /** must select 2 modifiers as of now */
-    let mod1 = modifiersCheck[0];
-    let mod2 = modifiersCheck[1];
-    console.log(modifiers[mod1].value)
-    console.log(modifiers[mod2].value)
-    console.log(drink)
+    // let modifiers = document.getElementsByClassName('form-check-input');
+    // let modifiersCheck = [];
+    // for(i=0;i<modifiers.length;i++){
+    //     if (modifiers[i].checked==true){
+    //         modifiersCheck.push(i)
+    //         console.log(modifiersCheck)
+    //     }
+    // }
+    // /** must select 2 modifiers as of now */
+    // let mod1 = modifiersCheck[0];
+    // let mod2 = modifiersCheck[1];
+    // console.log(modifiers[mod1].value)
+    // console.log(modifiers[mod2].value)
+    // console.log(drink)
     fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink}`) /**,${modifiers[mod1].value} */
     .then(response => response.json())
     .then(data => {
