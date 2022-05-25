@@ -14,16 +14,29 @@ const checkRecipeOptions = (meal, cuisine, protein) => {
     if (meal === '') {
         document.getElementById('message-meal').innerHTML = 'Please choose a meal type.';
         document.getElementById('meal').style.borderColor = 'red';
+        document.getElementById('meal').classList.add('shake');
+        setTimeout(() => {
+            document.getElementById('meal').classList.remove('shake');
+        }, 1000)
+        
     }
     
     if (cuisine === '') {
         document.getElementById('message-cuisine').innerHTML = 'Please choose a cuisine.';
         document.getElementById('cuisine').style.borderColor = 'red';
+        document.getElementById('cuisine').classList.add('shake');
+        setTimeout(() => {
+            document.getElementById('cuisine').classList.remove('shake');
+        }, 1000)
     }
     
     if (protein === '') {
         document.getElementById('message-protein').innerHTML = 'Please choose a protein.';
         document.getElementById('protein').style.borderColor = 'red';
+        document.getElementById('protein').classList.add('shake');
+        setTimeout(() => {
+            document.getElementById('protein').classList.remove('shake');
+        }, 1000)
     }
 
     if (meal === '' || cuisine === '' || protein === '') {
