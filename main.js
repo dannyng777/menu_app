@@ -1,16 +1,41 @@
-const callRecipeApi = () => {
-  let meal = document.getElementById('meal').value;
-  let cuisine = document.getElementById('cuisine').value;
-  let protein = document.getElementById('protein').value;
+function getRandomNum(min,max){
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random()*(max-min)+min);
+}
 
-    fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
+const checkRecipeOptions = (meal, cuisine, protein) => {
+    if (meal === '') {
+        document.getElementById('message-meal').innerHTML = 'Please choose a meal type.';
+        document.getElementById('meal').style.borderColor = 'red';
+    }
+    
+    if (cuisine === '') {
+        document.getElementById('message-cuisine').innerHTML = 'Please choose a cuisine.';
+        document.getElementById('cuisine').style.borderColor = 'red';
+    }
+    
+    if (protein === '') {
+        document.getElementById('message-protein').innerHTML = 'Please choose a protein.';
+        document.getElementById('protein').style.borderColor = 'red';
+    }
+
+    if (meal === '' || cuisine === '' || protein === '') {
+        return true;
+    }
+
+    return false;
+}
+
+async function callRecipeApi (meal, cuisine, protein) {
+
+    await fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data.hits[0].recipe);
-          let result = data.hits[0].recipe;
+          let result = data.hits[getRandomNum(0,data.hits.length)].recipe;
           let title = result.label;
           let image = result.image;
-        let ingredients = result.ingredientLines;
+          let ingredients = result.ingredientLines;
           let recipeLink = result.url;
           let calories = result.calories;
           let fat = Math.round(result.totalNutrients.FAT.quantity);
@@ -35,6 +60,7 @@ const callRecipeApi = () => {
             <a href="${recipeLink}"><button class="btn btn-primary">Full Recipe Instructions</button></a>`;
         });
 }
+
 /** https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=Gin,Tequila (multiple searches) */ 
 /** Start by switching spirits to checkbox and redo */
 callDrinkApi = ()=>{
@@ -222,20 +248,26 @@ document.addEventListener('click', (event) => {
             event.preventDefault();
             return
         }
-        // else check the box
-        if (event.target.checked == true) {
-            checkedBoxes += 1;
+
+    })
+    document.getElementById('submit').addEventListener('click', (event) => {
+        let meal = document.getElementById('meal').value;
+        let cuisine = document.getElementById('cuisine').value;
+        let protein = document.getElementById('protein').value;
+        event.preventDefault();
+
+        if (checkRecipeOptions(meal, cuisine, protein)) {
+            checkRecipeOptions(meal, cuisine, protein);
+            return;
         }
-    }
-})
-document.getElementById('submit').addEventListener('click', (event) => {
-    event.preventDefault();
-    
-    callDrinkApi();
-    // callRecipeApi();
-    switchDisplay()
+        
+        callDrinkApi();
+        callRecipeApi(meal, cuisine, protein);
+        switchDisplay()
+    });
+    document.getElementById('reset').addEventListener('click', (event) => {
+        event.preventDefault();
+        switchDisplay()
+    });    
 });
-document.getElementById('reset').addEventListener('click', (event) => {
-    event.preventDefault();
-    switchDisplay()
-});    
+
