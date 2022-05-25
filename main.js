@@ -1,5 +1,10 @@
-const checkRecipeOptions = (meal, cuisine, protein) => {
+function getRandomNum(min,max){
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random()*(max-min)+min);
+}
 
+const checkRecipeOptions = (meal, cuisine, protein) => {
     if (meal === '') {
         document.getElementById('message-meal').innerHTML = 'Please choose a meal type.';
         document.getElementById('meal').style.borderColor = 'red';
@@ -27,11 +32,10 @@ async function callRecipeApi (meal, cuisine, protein) {
     await fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data.hits[0].recipe);
-          let result = data.hits[0].recipe;
+          let result = data.hits[getRandomNum(0,data.hits.length)].recipe;
           let title = result.label;
           let image = result.image;
-        let ingredients = result.ingredientLines;
+          let ingredients = result.ingredientLines;
           let recipeLink = result.url;
           let calories = result.calories;
           let fat = Math.round(result.totalNutrients.FAT.quantity);
@@ -78,12 +82,6 @@ callDrinkApi = ()=>{
     fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink}`) /**,${modifiers[mod1].value} */
     .then(response => response.json())
     .then(data => {
-        //get random num to get random drink
-        function getRandomNum(min,max){
-            min = Math.ceil(min)
-            max = Math.floor(max)
-            return Math.floor(Math.random()*(max-min)+min);
-        }
         // console.log(getRandomNum(0 , data.drinks.length))
         const drinkID = data.drinks[getRandomNum(0,data.drinks.length)].idDrink
         fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkID}`) /*178366*/
