@@ -41,4 +41,11 @@
 
 #results-screen {
     max-width: 428px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reset {
+    width: 100%;
 }
