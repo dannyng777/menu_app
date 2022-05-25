@@ -5,6 +5,12 @@ function getRandomNum(min,max){
 }
 
 const checkRecipeOptions = (meal, cuisine, protein) => {
+    document.getElementById('message-meal').innerHTML = '';
+    document.getElementById('meal').style.borderColor = '';
+    document.getElementById('message-cuisine').innerHTML = '';
+    document.getElementById('cuisine').style.borderColor = '';
+    document.getElementById('message-protein').innerHTML = '';
+    document.getElementById('protein').style.borderColor = '';
     if (meal === '') {
         document.getElementById('message-meal').innerHTML = 'Please choose a meal type.';
         document.getElementById('meal').style.borderColor = 'red';
@@ -32,6 +38,7 @@ async function callRecipeApi (meal, cuisine, protein) {
     await fetch(`https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${protein}&app_id=455fdd1b&app_key=%20e4256eb4241155c86b0aa96877050a3b&cuisineType=${cuisine}&mealType=${meal}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
           let result = data.hits[getRandomNum(0,data.hits.length)].recipe;
           let title = result.label;
           let image = result.image;
@@ -63,11 +70,13 @@ async function callRecipeApi (meal, cuisine, protein) {
 
 /** https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=Gin,Tequila (multiple searches) */ 
 /** Start by switching spirits to checkbox and redo */
-callDrinkApi = ()=>{
+const callDrinkApi = ()=>{
     let drink = document.getElementById('drink').value;
     let modifiers = document.getElementsByClassName('form-check-input');
     let modifiersCheck = [];
-    if(checkedBoxes==0){
+    console.log(checkedBoxes);
+    if (checkedBoxes == 0) {
+        alert('1')
         fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
         .then(data => {
@@ -116,6 +125,7 @@ callDrinkApi = ()=>{
         let mod1 = modifiersCheck[0];
         console.log(modifiers[mod1].value)
         console.log(drink)
+        alert()
         fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink},${modifiers[mod1].value}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
         .then(data => {
@@ -166,6 +176,7 @@ callDrinkApi = ()=>{
         console.log(modifiers[mod1].value)
         console.log(modifiers[mod2].value)
         console.log(drink)
+        alert()
         fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink},${modifiers[mod1].value},${modifiers[mod2].value}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
         .then(data => {
@@ -241,33 +252,34 @@ document.addEventListener('click', (event) => {
         // if it's being unchecked, subtract from counter
         if (event.target.checked == false) {
             checkedBoxes -= 1
-            
         }
         // don't do anything if 2 boxes are already checked
         if (checkedBoxes == 2) {
             event.preventDefault();
             return
         }
-
-    })
-    document.getElementById('submit').addEventListener('click', (event) => {
-        let meal = document.getElementById('meal').value;
-        let cuisine = document.getElementById('cuisine').value;
-        let protein = document.getElementById('protein').value;
-        event.preventDefault();
-
-        if (checkRecipeOptions(meal, cuisine, protein)) {
-            checkRecipeOptions(meal, cuisine, protein);
-            return;
+        // else check the box
+        if (event.target.checked == true) {
+            checkedBoxes += 1;
         }
-        
-        callDrinkApi();
-        callRecipeApi(meal, cuisine, protein);
-        switchDisplay()
-    });
-    document.getElementById('reset').addEventListener('click', (event) => {
-        event.preventDefault();
-        switchDisplay()
-    });    
+    }
+})
+
+document.getElementById('submit').addEventListener('click', (event) => {
+    event.preventDefault();
+    let meal = document.getElementById('meal').value;
+    let cuisine = document.getElementById('cuisine').value;
+    let protein = document.getElementById('protein').value;
+    if (checkRecipeOptions(meal, cuisine, protein)) {
+        checkRecipeOptions(meal, cuisine, protein);
+        return;
+    }
+    callDrinkApi();
+    callRecipeApi(meal,cuisine,protein);
+    switchDisplay()
 });
 
+document.getElementById('reset').addEventListener('click', (event) => {
+    event.preventDefault();
+    switchDisplay()
+});
