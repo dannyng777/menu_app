@@ -76,7 +76,6 @@ const callDrinkApi = ()=>{
     let modifiersCheck = [];
     console.log(checkedBoxes);
     if (checkedBoxes == 0) {
-        alert('1')
         fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
         .then(data => {
@@ -125,7 +124,6 @@ const callDrinkApi = ()=>{
         let mod1 = modifiersCheck[0];
         console.log(modifiers[mod1].value)
         console.log(drink)
-        alert()
         fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink},${modifiers[mod1].value}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
         .then(data => {
@@ -176,7 +174,6 @@ const callDrinkApi = ()=>{
         console.log(modifiers[mod1].value)
         console.log(modifiers[mod2].value)
         console.log(drink)
-        alert()
         fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink},${modifiers[mod1].value},${modifiers[mod2].value}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
         .then(data => {
