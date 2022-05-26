@@ -9,6 +9,9 @@ body {
     width: 100%;
     min-height: 100vh; 
 }
+h1 {
+    font-size: 3rem;
+}
 
 #recipe-result {
     background-color: whitesmoke;
@@ -22,6 +25,7 @@ body {
 #selection-screen {
     height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -31,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 5px;
 }
 
 #drink-selection {
