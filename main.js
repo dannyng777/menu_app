@@ -69,7 +69,7 @@ async function callRecipeApi (meal, cuisine, protein) {
           document.getElementById('recipe-result').innerHTML = `
             <h3><span id="recipe-title">${title}</span></h3>
             <img class="mb-1" width="100%" src="${image}" alt="${title} srcset="">
-            <p><strong>Calories / Serving: </strong><span id="calories">${calories}g</span></p>
+            <p><strong>Calories / Serving: </strong><span id="calories">${Math.round(calories)}g</span></p>
             <p><strong>Fat: </strong><span id="fat">${fat}g</span></p>
             <p><strong>Carbs: </strong><span id="carbs">${carbs}g</span></p>
             <p><strong>Protein: </strong><span id="protein">${protein}g</span></p>

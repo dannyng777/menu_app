@@ -7,7 +7,7 @@ body {
     background: linear-gradient(45deg, #e66465, #9198e5);
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100vh; 
 }
 
 #recipe-result {
@@ -39,7 +39,7 @@ body {
 
 #modifiers {
     background-color: white;
-    max-height: 15vh;
+    max-height: 20vh;
     overflow: auto;
     border-radius: 5px;
     border: 1px solid lightgrey;
