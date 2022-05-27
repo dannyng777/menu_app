@@ -79,9 +79,12 @@ async function callRecipeApi (meal, cuisine, protein) {
                 ${ingredientList}  
             </ul>
             <a href="${recipeLink}"><button class="btn btn-primary">Full Recipe Instructions</button></a>`;
+            
         });
+        switchDisplay();
 }
-const fetchDrinks = ()=>{
+const fetchDrinks = () => {
+    document.getElementById('error').innerHTML = '';
     let drink = document.getElementById('drink').value;
     fetch(`https://www.thecocktaildb.com/api/json/v2/1/filter.php?i=${drink}`) /**,${modifiers[mod1].value},${modifiers[mod2].value} */
         .then(response => response.json())
@@ -297,8 +300,9 @@ document.getElementById('submit').addEventListener('click', (event) => {
         return;
     };
     callDrinkApi();
-    callRecipeApi(meal,cuisine,protein);
-    switchDisplay()
+    callRecipeApi(meal, cuisine, protein);
+    
+    
 });
 
 document.getElementById('reset').addEventListener('click', (event) => {
