@@ -301,22 +301,25 @@
       </div>
     </form>
   </div>
-  <div id="results-screen" class="container" style="display:none">
-    <div id="recipe-result" class="container-fluid p-3 mt-3 mb-3">
-      <!-- Recipe Here -->
+  <div id="results-screen" class="container-fluid" style="display:none">
+    <div class="row mx-1">
+      <div id="recipe-result" class="p-3 mt-3 mb-3 col-md">
+        <!-- Recipe Here -->
+      </div>
+      <div id="cocktail-result" class=" p-3 col-md ms-md-3 mt-md-3">
+        <h2 id="drinkName"></h2>
+        <img id="drinkImg"class="mb-1" width="100%" src="" alt="" srcset="">
+        <p id="glass"><strong>Glass: </strong></p>
+        <p><strong>Ingredients: </strong></p>
+        <ul id="drinkIngri">
+  
+        </ul>
+        <p><strong>Instructions:</strong></p>
+        <p id="drinkInstructions"></p>
+      </div>
     </div>
-    <div id="cocktail-result" class="container-fluid p-3">
-      <h2 id="drinkName"></h2>
-      <img id="drinkImg"class="mb-1" width="100%" src="" alt="" srcset="">
-      <p id="glass"><strong>Glass: </strong></p>
-      <p><strong>Ingredients: </strong></p>
-      <ul id="drinkIngri">
-
-      </ul>
-      <p><strong>Instructions:</strong></p>
-      <p id="drinkInstructions"></p>
-    </div>
-      <button id="reset" class="btn btn-danger mt-2 mb-2"> Reset </button>
+    <button id="reset" class="btn btn-danger mt-2 mb-2 col-12"> Reset </button>
+      
   </div>
   <script src="main.js"></script>
 </body>

@@ -57,12 +57,37 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 !important;
 }
 
 #reset {
     width: 100%;
+    
 }
 
+
+@media (min-width: 500px) {
+    body {
+        display: flex;
+        justify-content: center;
+    }
+    #results-screen {
+        max-width: 60vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #recipe-result {
+        height: 90vh;
+        overflow: auto
+    }
+    #cocktail-result {
+        height: 90vh;
+        overflow: auto;
+    }
+}
 .shake {
     animation: shake .5s;
 }
