@@ -312,6 +312,10 @@ document.getElementById('reset').addEventListener('click', (event) => {
 });
 document.getElementById('refresh').addEventListener('click', (event) => {
     event.preventDefault();
+    document.getElementById('cocktail-result').classList.add('shake')
     drinkValidation();
     callDrinkApi();
+    setTimeout(() => {
+        document.getElementById('cocktail-result').classList.remove('shake');
+    }, 800)
 });
