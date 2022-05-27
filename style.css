@@ -58,6 +58,9 @@ body {
     width: 100%;
 }
 
+#refresh {
+    width: 100%;
+}
 .shake {
     animation: shake .5s;
 }
