@@ -66,6 +66,7 @@ h1 {
 }
 
 
+
 @media (min-width: 500px) {
     body {
         display: flex;
@@ -87,6 +88,10 @@ h1 {
         height: 90vh;
         overflow: auto;
     }
+
+}
+#refresh {
+    width: 100%;
 }
 .shake {
     animation: shake .5s;
