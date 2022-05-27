@@ -78,10 +78,20 @@ async function callRecipeApi (meal, cuisine, protein) {
             <ul id="ingredients-list">
                 ${ingredientList}  
             </ul>
-            <a href="${recipeLink}"><button class="btn btn-primary">Full Recipe Instructions</button></a>`;
-            
+            <a href="${recipeLink}"><button id="recipeIns" class="btn btn-primary">Full Recipe Instructions</button></a>
+            <button id="refreshFood" class="btn btn-danger mt-1"> I don't like my food </button>`;           
         });
-        switchDisplay();
+        document.getElementById('refreshFood').addEventListener('click', (event) => {
+            event.preventDefault();
+            let meal = document.getElementById('meal').value;
+            let cuisine = document.getElementById('cuisine').value;
+            let protein = document.getElementById('protein').value;
+            document.getElementById('recipe-result').classList.add('shake')
+            callRecipeApi(meal, cuisine, protein);
+            setTimeout(() => {
+                document.getElementById('recipe-result').classList.remove('shake');
+            }, 800)
+        });
 }
 const fetchDrinks = () => {
     document.getElementById('error').innerHTML = '';
@@ -283,7 +293,7 @@ document.addEventListener('click', (event) => {
     }
 })
 
-document.getElementById('submit').addEventListener('click', (event) => {
+document.getElementById('submit').addEventListener('click', async(event) => {
     event.preventDefault();
     let meal = document.getElementById('meal').value;
     let cuisine = document.getElementById('cuisine').value;
@@ -300,9 +310,8 @@ document.getElementById('submit').addEventListener('click', (event) => {
         return;
     };
     callDrinkApi();
-    callRecipeApi(meal, cuisine, protein);
-    
-    
+    await callRecipeApi(meal, cuisine, protein);
+    switchDisplay();
 });
 
 document.getElementById('reset').addEventListener('click', (event) => {

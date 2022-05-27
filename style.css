@@ -90,7 +90,13 @@ h1 {
     }
 
 }
+#recipeIns{
+    width: 100%;
+}
 #refresh {
+    width: 100%;
+}
+#refreshFood{
     width: 100%;
 }
 .shake {
